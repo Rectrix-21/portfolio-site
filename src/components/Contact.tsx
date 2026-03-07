@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, Send, MapPin, Phone, Instagram } from "lucide-react";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,9 +12,35 @@ const Contact = () => {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: "abhijithkrishnan14@gmail.com",
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -245,23 +272,49 @@ const Contact = () => {
 
               <motion.button
                 type="submit"
+                disabled={isSubmitting}
                 whileHover={{
-                  scale: 1.02,
-                  boxShadow: "0 0 30px rgba(212, 175, 55, 0.5)",
+                  scale: isSubmitting ? 1 : 1.02,
+                  boxShadow: isSubmitting ? "none" : "0 0 30px rgba(212, 175, 55, 0.5)",
                 }}
-                whileTap={{ scale: 0.98 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.5 }}
-                className="cyber-button w-full group relative overflow-hidden"
+                className={`cyber-button w-full group relative overflow-hidden ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""}`}
               >
                 <span className="relative z-10 flex items-center justify-center gap-3 text-black font-bold tracking-wider">
                   <Send size={20} />
-                  TRANSMIT_DATA
+                  {isSubmitting ? "TRANSMITTING..." : "TRANSMIT_DATA"}
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] group-hover:from-[#FFD700] group-hover:to-[#D4AF37] transition-all duration-300"></div>
               </motion.button>
+
+              {/* Status Messages */}
+              {submitStatus === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="cyber-panel bg-green-900/20 border-green-500/50 mt-4"
+                >
+                  <p className="text-green-400 font-mono text-center">
+                    <span className="text-[#D4AF37]">&gt;</span> MESSAGE_TRANSMITTED_SUCCESSFULLY ✓
+                  </p>
+                </motion.div>
+              )}
+
+              {submitStatus === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="cyber-panel bg-red-900/20 border-red-500/50 mt-4"
+                >
+                  <p className="text-red-400 font-mono text-center">
+                    <span className="text-[#B11226]">&gt;</span> TRANSMISSION_FAILED. RETRY_PROTOCOL ✗
+                  </p>
+                </motion.div>
+              )}
             </form>
           </motion.div>
 
