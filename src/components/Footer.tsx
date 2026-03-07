@@ -112,7 +112,7 @@ const Footer = () => {
               >
                 <Terminal className="inline w-3 h-3 mr-2" />
                 <a
-                  href="https://github.com/Rectrix-21"
+                  href="https://github.com/Rectrix-21/portfolio-site"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

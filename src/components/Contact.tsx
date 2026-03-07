@@ -36,8 +36,8 @@ const Contact = () => {
     {
       icon: <Github className="w-5 h-5" />,
       label: "SOURCE_CODE",
-      value: "github.com/Rectrix-21",
-      href: "https://github.com/Rectrix-21",
+      value: "github.com/Rectrix-21/portfolio-site",
+      href: "https://github.com/Rectrix-21/portfolio-site",
       color: "text-[#B11226]",
     },
     {
