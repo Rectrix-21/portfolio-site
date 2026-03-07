@@ -39,11 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# large media files
-public/horror-game-progress1.mp4
-public/3d-arts/Halloween.mov
-public/3d-arts/Oblivion.mp4
-public/3d-arts/stargazing.mov
-public/3d-arts/*.mov
-public/3d-arts/*.mp4
