@@ -231,7 +231,7 @@ const Contact = () => {
                   htmlFor="subject"
                   className="block text-sm font-medium text-[#D4AF37] mb-2 font-mono tracking-wider"
                 >
-                  PROJECT_ID
+                  SUBJECT_ID
                 </label>
                 <input
                   type="text"
@@ -255,7 +255,7 @@ const Contact = () => {
                   htmlFor="message"
                   className="block text-sm font-medium text-[#D4AF37] mb-2 font-mono tracking-wider"
                 >
-                  DATA_PAYLOAD
+                  DATA_DESCRIPTION
                 </label>
                 <textarea
                   id="message"

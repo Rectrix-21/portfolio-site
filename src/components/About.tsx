@@ -48,10 +48,7 @@ const About = () => {
         <motion.div
           className="absolute w-full h-px bg-gradient-to-r from-transparent via-[#B11226] to-transparent"
           animate={{
-            y: [
-              0,
-              typeof window !== "undefined" ? window.innerHeight : 800,
-            ],
+            y: [0, typeof window !== "undefined" ? window.innerHeight : 800],
           }}
           transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
         />
@@ -104,7 +101,10 @@ const About = () => {
                   <span className="text-[#B11226] font-bold cyber-glow">
                     CREATIVE TECHNOLOGIST
                   </span>{" "}
-                  working at the intersection of software development and digital art. My work blends frontend engineering, game development, 3D design, and music production to build interactive and immersive digital experiences.
+                  working at the intersection of software development and
+                  digital art. My work blends frontend engineering, game
+                  development, 3D design, and music production to build
+                  interactive and immersive digital experiences.
                 </p>
               </div>
 
@@ -114,7 +114,12 @@ const About = () => {
                   LOADING_CAPABILITIES.dll
                 </p>
                 <p>
-                  My focus is primarily on frontend development using modern web technologies, along with creating game environments and interactive systems in Unreal Engine. I also work with Blender for 3D content, FL Studio for music production and sound design, and DaVinci Resolve for visual editing and post-production.
+                  My focus is primarily on frontend development using modern web
+                  technologies, along with creating game environments and
+                  interactive systems in Unreal Engine. I also work with Blender
+                  for 3D content, FL Studio for music production and sound
+                  design, and DaVinci Resolve for visual editing and
+                  post-production.
                 </p>
               </div>
 
@@ -124,7 +129,10 @@ const About = () => {
                   RUNTIME_PHILOSOPHY.cfg
                 </p>
                 <p>
-                  I enjoy experimenting with new tools, exploring real-time rendering, and building projects that combine technology with creativity. My goal is to continuously improve and expand across both development and digital media disciplines.
+                  I enjoy experimenting with new tools, exploring real-time
+                  rendering, and building projects that combine technology with
+                  creativity. My goal is to continuously improve and expand
+                  across both development and digital media disciplines.
                   <span className="text-[#B11226]">
                     {" "}
                     CONTINUOUS_EVOLUTION = TRUE;
