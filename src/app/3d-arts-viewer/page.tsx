@@ -47,7 +47,7 @@ const ThreeDArtsViewer = () => {
       id: 5,
       title: "Stargazing",
       type: "video",
-      url: "3d-arts/stargazing.mov",
+      url: "https://github.com/Rectrix-21/portfolio-site/releases/download/v1.0-videos/stargazing.mov",
       thumbnail: "3d-arts/stargazing-thumb.png",
       description:
         "A video showcasing a character stargazing in a serene environment",
@@ -56,7 +56,7 @@ const ThreeDArtsViewer = () => {
       id: 6,
       title: "Halloween Animation",
       type: "video",
-      url: "3d-arts/Halloween.mov",
+      url: "https://github.com/Rectrix-21/portfolio-site/releases/download/v1.0-videos/Halloween.mov",
       thumbnail: "3d-arts/halloween.png",
       description:
         "The animation sequence of the Halloween scene, showcasing character movement and environmental effects",
@@ -65,7 +65,7 @@ const ThreeDArtsViewer = () => {
       id: 7,
       title: "Oblivion Animation",
       type: "video",
-      url: "3d-arts/Oblivion.mp4",
+      url: "https://github.com/Rectrix-21/portfolio-site/releases/download/v1.0-videos/Oblivion.mp4",
       thumbnail: "3d-arts/oblivion.png",
       description:
         "The animation sequence of the Oblivion scene, showcasing character movement and environmental effects",
@@ -74,7 +74,7 @@ const ThreeDArtsViewer = () => {
       id: 8,
       title: "LYB intro reel Animation",
       type: "video",
-      url: "3d-arts/Timeline 1.mov",
+      url: "https://github.com/Rectrix-21/portfolio-site/releases/download/v1.0-videos/Timeline.1.mov",
       thumbnail: "3d-arts/lyb-thumb.png",
       description:
         "A cinematic intro reel for the song 'Love You Better', showcasing various 3D assets and animations created for the project",

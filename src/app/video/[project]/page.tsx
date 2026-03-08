@@ -31,7 +31,7 @@ const VideoPlayer = () => {
   const projectData: { [key: string]: any } = {
     "silent-hill-game": {
       title: "The Sin Beneath - Development Progress",
-      videoUrl: "/horror-game-progress1.mp4", // You'll need to add your video here
+      videoUrl: "https://github.com/Rectrix-21/portfolio-site/releases/download/v1.0-videos/horror-game-progress1.mp4",
       description:
         "Current development progress showcasing MetaHuman character integration, interactive environment systems, and atmospheric horror elements in Unreal Engine 5.",
       features: [
