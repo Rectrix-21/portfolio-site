@@ -47,7 +47,12 @@ const About = () => {
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute w-full h-px bg-gradient-to-r from-transparent via-[#B11226] to-transparent"
-          animate={{ y: [0, window.innerHeight || 800] }}
+          animate={{
+            y: [
+              0,
+              typeof window !== "undefined" ? window.innerHeight : 800,
+            ],
+          }}
           transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
         />
       </div>
