@@ -181,10 +181,16 @@ const About = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
                 className="cyber-button group relative overflow-hidden"
+                onClick={() => {
+                  const link = document.createElement("a");
+                  link.href = "/resume.pdf";
+                  link.download = "Abhijith_Krishnan_Resume.pdf";
+                  link.click();
+                }}
               >
                 <span className="relative z-10 flex items-center gap-3 text-black font-bold tracking-wider">
                   <Download size={20} />
-                  DOWNLOAD_PROFILE.zip
+                  DOWNLOAD_RESUME.pdf
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#FFD700] group-hover:from-[#FFD700] group-hover:to-[#D4AF37] transition-all duration-300"></div>
               </motion.button>
