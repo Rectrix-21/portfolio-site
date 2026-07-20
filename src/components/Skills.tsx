@@ -34,6 +34,9 @@ const Skills = () => {
       icon: <Server className="w-8 h-8" />,
       skills: [
         { name: "Node.js" },
+        { name: "Python" },
+        { name: "FastAPI" },
+        { name: "Supabase" },
         { name: "SQL" },
         { name: "C++" },
         { name: "REST APIs" }
@@ -72,10 +75,25 @@ const Skills = () => {
       skills: [
         { name: "React Native" },
         { name: "Expo" },
-        { name: "Mobile App Development" }
+        { name: "Mobile App Development" },
+        { name: "Electron" },
+        { name: "Desktop App Development" }
       ],
       color: "from-[#D4AF37] to-[#B11226]",
       glowColor: "shadow-[#D4AF37]/40",
+    },
+    {
+      title: "Audio & AI Engineering",
+      icon: <Headphones className="w-8 h-8" />,
+      skills: [
+        { name: "Audio-to-MIDI Transcription" },
+        { name: "Web Audio API" },
+        { name: "Tone.js" },
+        { name: "Essentia.js" },
+        { name: "Demucs (Stem Separation)" }
+      ],
+      color: "from-[#B11226] to-[#D4AF37]",
+      glowColor: "shadow-[#B11226]/30",
     }
   ];
 

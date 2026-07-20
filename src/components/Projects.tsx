@@ -1,13 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 import ProjectCard from "./ProjectCard";
 
 const Projects = () => {
-  const [showAllProjects, setShowAllProjects] = useState(false);
-
   const projects = [
+    {
+      title: "KeyTone - Audio to MIDI Converter",
+      description:
+        "Browser-based music production toolkit that transcribes melody and chords from any song into MIDI in about a minute. Includes AI-assisted chord improvement, MIDI generation, track analysis, and BPM/key tools, backed by KeyTone Studio, a Windows/macOS Electron companion app that runs Demucs stem separation locally.",
+      techStack: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Supabase",
+        "Python API",
+        "Electron",
+      ],
+      imageUrl: "/keytone.png",
+      liveUrl: "https://keytonestudio.com",
+      githubUrl: "https://github.com/Rectrix-21/KeyTone",
+    },
     {
       title: "Interactive Game Website",
       description:
@@ -62,9 +76,6 @@ const Projects = () => {
       liveUrl: "https://youtu.be/Bxs-rvhX2Bo?si=jQP4XveMZ6cnbGNp", // Video showcase with sound design breakdown
       githubUrl: "", // No GitHub for film work
     },
-  ];
-
-  const additionalProjects = [
     {
       title: "3D Art & Modeling - Blender",
       description:
@@ -81,10 +92,6 @@ const Projects = () => {
       githubUrl: "", // No GitHub for 3D art
     },
   ];
-
-  const displayedProjects = showAllProjects
-    ? [...projects, ...additionalProjects]
-    : projects;
 
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative">
@@ -150,76 +157,36 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              title={project.title}
-              description={project.description}
-              techStack={project.techStack}
-              imageUrl={project.imageUrl}
-              liveUrl={project.liveUrl}
-              githubUrl={project.githubUrl}
-              index={index}
-            />
-          ))}
-        </div>
+          {projects.map((project, index) => {
+            const isTrailingOdd =
+              projects.length % 2 !== 0 && index === projects.length - 1;
 
-        {/* Additional Projects with Animation */}
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{
-            opacity: showAllProjects ? 1 : 0,
-            height: showAllProjects ? "auto" : 0,
-          }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="overflow-hidden"
-        >
-          {showAllProjects && (
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8"
-            >
-              {/* This will show the 5th project in the center */}
-              <div className="md:col-span-2 max-w-md mx-auto">
-                <ProjectCard
-                  title={additionalProjects[0].title}
-                  description={additionalProjects[0].description}
-                  techStack={additionalProjects[0].techStack}
-                  imageUrl={additionalProjects[0].imageUrl}
-                  liveUrl={additionalProjects[0].liveUrl}
-                  githubUrl={additionalProjects[0].githubUrl}
-                  index={4}
-                />
+            const card = (
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                techStack={project.techStack}
+                imageUrl={project.imageUrl}
+                liveUrl={project.liveUrl}
+                githubUrl={project.githubUrl}
+                index={index}
+              />
+            );
+
+            return isTrailingOdd ? (
+              <div
+                key={index}
+                className="md:col-span-2 max-w-md mx-auto w-full"
+              >
+                {card}
               </div>
-            </motion.div>
-          )}
-        </motion.div>
-
-        {/* View More/Less Button */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <motion.button
-            onClick={() => setShowAllProjects(!showAllProjects)}
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 0 30px rgba(177, 18, 38, 0.4)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 border-2 border-red-600 text-red-600 font-mono font-bold tracking-wider uppercase hover:bg-red-600/10 transition-all duration-300 relative group"
-          >
-            <span className="relative z-10">
-              {showAllProjects ? "SHOW_LESS" : "VIEW_ALL_PROJECTS"}
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </motion.button>
-        </motion.div>
+            ) : (
+              <div key={index} className="h-full">
+                {card}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

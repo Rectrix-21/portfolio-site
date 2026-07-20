@@ -222,7 +222,7 @@ const About = () => {
               >
                 {/* Profile Picture */}
                 <img
-                  src="/pfp2.jpg"
+                  src="/pfp3.jpg"
                   alt="Profile"
                   className="w-full h-full object-cover rounded-full border-4 border-yellow-500/50"
                 />

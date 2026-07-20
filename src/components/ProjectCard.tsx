@@ -49,7 +49,7 @@ const ProjectCard = ({
       whileHover={{ y: -10 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="group relative cyberpunk-panel rounded-none overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-yellow-500/20"
+      className="group relative cyberpunk-panel rounded-none overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-yellow-500/20 h-full flex flex-col"
     >
       {/* Glowing border effect */}
       <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/0 via-yellow-500/0 to-red-600/0 group-hover:from-yellow-500/30 group-hover:via-yellow-500/10 group-hover:to-red-600/30 transition-all duration-500 pointer-events-none"></div>
@@ -111,7 +111,7 @@ const ProjectCard = ({
       </div>
 
       {/* Content */}
-      <div className="p-6 relative">
+      <div className="p-6 relative flex-1 flex flex-col">
         {/* Data stream effect */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent"></div>
 
@@ -122,7 +122,7 @@ const ProjectCard = ({
           {title}
         </motion.h3>
 
-        <p className="text-gray-300 text-sm mb-4 leading-relaxed font-mono">
+        <p className="text-gray-300 text-sm mb-4 leading-relaxed font-mono flex-grow">
           {description}
         </p>
 
