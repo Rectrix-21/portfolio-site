@@ -14,14 +14,14 @@ import {
 const About = () => {
   const stats = [
     {
-      number: "3+",
-      label: "YEARS_EXPERIENCE",
+      number: "2025",
+      label: "SAIT_GRADUATE",
       icon: <Calendar className="w-5 h-5" />,
       color: "text-[#D4AF37]",
     },
     {
-      number: "4",
-      label: "PROJECTS_DEPLOYED",
+      number: "6",
+      label: "FEATURED_PROJECTS",
       icon: <Coffee className="w-5 h-5" />,
       color: "text-[#B11226]",
     },
